@@ -1,13 +1,13 @@
 import Item from "./Item";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import '../css/List.scss';
+import "../css/List.scss";
 
 const List = ({ data, category, cnt, check }) => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
-  const NAVER_CLIENT_ID = "BFw6Z_s_WT32JVXE00Dm";
-  const NAVER_CLIENT_SECRET = "VcUjlh1Aiz";
+  const NAVER_CLIENT_ID = "본인의 Client ID";
+  const NAVER_CLIENT_SECRET = "본인의 Client Secret";
   const searchData = data.search;
   const searchCategory = category;
   console.log("category: ", category);
@@ -64,13 +64,9 @@ const List = ({ data, category, cnt, check }) => {
     // items 값이 유효할 때
     return (
       // <div className="List">
-      <div className={category =='image' ? 'List ImageList' : 'List'}>
+      <div className={category == "image" ? "List ImageList" : "List"}>
         {items.map((item) => (
-          <Item
-            key={item.link}
-            item={item}
-            searchCategory={searchCategory}
-          />
+          <Item key={item.link} item={item} searchCategory={searchCategory} />
         ))}
       </div>
     );
